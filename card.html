@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>hello</title>
+    <title>stickynotes</title>
     <style type="text/css">
     #cont {
         /*父节点必须填写的有 z-index,position,width,height*/
@@ -11,9 +11,9 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -350px;
-        margin-left: -350px;
-        width: 700px;
+        margin-top: -400px;
+        margin-left: -500px;
+        width: 1000px;
         height: 700px;
         background: #e4e4e4;
     }
@@ -23,19 +23,29 @@
         display: none;
         position: absolute;
         width: 100px;
-        height: 100px;
+        height: 120px;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
-    .close{
+    
+    .close {
+        /*默认关闭按钮样式*/
         display: block;
         position: absolute;
-        top:5px;
+        top: 5px;
         right: 5px;
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        border:1px solid #333;
-        cursor:pointer;
+        border: 1px solid #333;
+        cursor: pointer;
+    }
+    
+    p {
+        position: absolute;
+        left: -5%;
+        color: #333;
+        padding: 2px 5px;
+        background: yellow;
     }
     </style>
 </head>
@@ -43,31 +53,72 @@
 <body>
     <!-- dom start -->
     <div id="cont">
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
-        <div class="banana"></div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
+        <div class="banana">
+            <p>Jeocat</p>
+        </div>
     </div>
     <!-- dom end -->
     <script type="text/javascript" src="jquery-2.2.4.min.js">
@@ -76,7 +127,8 @@
     <script type="text/javascript">
     var sticky = $('.banana').sticky({
         background: ['#80d8ff', '#ccff90', '#ffff8d', '#ff8a80', '#ffd180', '#fafafa'], // 便利贴颜色
-        stop: [50, 50, 50, 50] // 便利贴距离边缘位置，0上1右2下3左
+        stop: [100, 200, 100, 200], // 便利贴距离边缘位置，0上1右2下3左
+        close:true // 便利贴关闭按钮，默认开启
     })
     </script>
 </body>

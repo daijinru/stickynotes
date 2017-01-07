@@ -7,6 +7,7 @@
         background: [], // 颜色参数
         nums: 0, // 卡片数量
         stop: [0, 0, 0, 0], // 偏移坐标 0上 1右 2下 3左
+        close: true,
         el: null // 操作对象
     }
 
@@ -20,7 +21,7 @@
         createCard();
         close();
         move();
-        
+
     }
 
     function createCard() {
@@ -60,11 +61,11 @@
         var stopMinY = config.stop[0] - elH; // 偏离Y最小值
 
         if (stopMinX > (divW - elW)) {
-            stopMinX = (divW - elW*2);
+            stopMinX = (divW - elW * 2);
         }
 
         if (stopMinY > (divH - elH)) {
-            stopMinY = (divH - elH*2);
+            stopMinY = (divH - elH * 2);
         }
 
         $e.each(function(i) {
@@ -72,7 +73,13 @@
             var color = random(0, colors); // 随机颜色
             var top = random(stopMinY, stopMaxY) + 'px';
             var left = random(stopMinX, stopMaxX) + 'px';
-            var html = `<i class='close'></i>`;
+
+            if (config.close) {
+                var html = `<i class='close'></i>`;
+                $(this).append(html);
+            }
+
+            console.log(top)
             $(this).css({
                 'z-index': zindex,
                 background: config.background[color],
@@ -80,7 +87,6 @@
                 left: left
             })
 
-            $(this).html(html);
             $(this).fadeIn();
         })
     }
@@ -120,7 +126,7 @@
 
                 // 移动边界
                 var mousex = fatherW - elW;
-                var mousey = fatherW - elH;
+                var mousey = fatherH - elH;
 
                 if (mvx > mousex) {
                     mvx = mousex;
@@ -152,11 +158,9 @@
             $(config.el).parent().off('mousemove');
         })
 
-        $(config.el).parent().mouseleave(function(){
+        $(config.el).parent().mouseleave(function() {
             $(config.el).parent().off('mousemove');
         })
-
-
 
     }
 
@@ -164,8 +168,8 @@
         return Math.round(min + Math.random() * (max - min));
     }
 
-    function close(){
-        $('.close').on('click',function(){
+    function close() {
+        $('.close').on('click', function() {
             $(this).parent().fadeOut();
         })
     }
